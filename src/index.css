@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+  /* Thème terracotta — fonds crème, surfaces et accents dans la même famille */
+  --color-cream: #f9f7f4;
+  --color-terracotta: #a6634b;
+  --color-terracotta-light: #c88269;
+  --color-terracotta-dark: #5c3d32;
+  /* Bandes alternées / hero : lavé très pâle dérivé du terracotta */
+  --color-terracotta-surface: #f2e8e4;
+  /* Accent chaud (filets, script, prix, icônes) — remplace l’ocre froid */
+  --color-terracotta-accent: #b87650;
+
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+  --font-script: "Dancing Script", cursive;
+
+  --shadow-soft: 0 8px 32px -8px rgb(166 99 75 / 0.12),
+    0 4px 16px -4px rgb(0 0 0 / 0.06);
+  --shadow-soft-lg: 0 16px 48px -12px rgb(166 99 75 / 0.16),
+    0 8px 24px -8px rgb(0 0 0 / 0.08);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-terracotta font-sans antialiased;
+  }
+
+  h1,
+  h2 {
+    @apply font-serif text-terracotta;
+  }
+}

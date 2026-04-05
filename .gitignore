@@ -6,3 +6,7 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Sauvegardes « Page web complète » du navigateur
+*_files/
+Psychomotricien*.html

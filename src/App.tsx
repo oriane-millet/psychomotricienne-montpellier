@@ -4,67 +4,17 @@
  */
 
 import { useState } from 'react';
+import { MapPin, Phone, Mail, Clock, Brain, PersonStanding, CheckCircle2, Menu, X } from 'lucide-react';
+import { ParcoursExpandableCard } from './components/ParcoursExpandableCard';
 import {
-  MapPin,
-  Phone,
-  Mail,
-  Clock,
-  Brain,
-  PersonStanding,
-  CheckCircle2,
-  Menu,
-  X,
-  ChevronDown,
-} from 'lucide-react';
-
-const diplomeEtatFormationInitialeItems = [
-  'Diplôme d’État de psychomotricien — titre professionnel réglementé, formation initiale dispensée à l\'Institut de Formation en Psychomotricité (IFP) de Paris.',
-  'Enseignement théorique et pratique : fondements de la psychomotricité, évaluation, rééducation, médiations corporelles et stages en milieux cliniques.',
-] as const;
-
-const tndFormationSubcategories = [
-  {
-    title: 'Formations sur les TND',
-    items: [
-      'Diplôme Universitaire « Les troubles du neurodéveloppement (TND) chez l’enfant et l’adolescent »',
-      'TND et rééducation psychomotrice',
-    ],
-  },
-  {
-    title: 'Trouble développemental de la coordination (TDC)',
-    items: ['TDC et rééducation psychomotrice (Co-op)'],
-  },
-  {
-    title: 'Trouble déficitaire de l’attention avec ou sans hyperactivité (TDA/H)',
-    items: [
-      'Métacognition et psychomotricité',
-      'Programme d’entraînement aux habiletés parentales (PEHP) de type Barkley',
-    ],
-  },
-  {
-    title: 'Trouble du spectre de l’autisme (TSA)',
-    items: [
-      'Le développement des habilités sociales des personnes autistes',
-      'Les principes de la conception TEACCH',
-      'Cerner le profil sensoriel et perceptif dans l’autisme',
-      'Les 9 aptitudes essentielles à la communication',
-      'PECS',
-      'Évaluation et gestion des comportements problèmes',
-      'Collaboration avec les parents et guidance parentale',
-    ],
-  },
-] as const;
-
-const tndFormationCount = tndFormationSubcategories.reduce((n, cat) => n + cat.items.length, 0);
-
-const diplomeEtatPointCount = diplomeEtatFormationInitialeItems.length;
-
-const autresTroublesPsychomoteursItems = [
-  'La grapho-psychomotricité pour optimiser la rééducation',
-  'Comprendre et accompagner les émotions du jeune enfant à l’adolescent',
-] as const;
-
-const autresTroublesFormationCount = autresTroublesPsychomoteursItems.length;
+  autresTroublesFormationCount,
+  autresTroublesPsychomoteursItems,
+  diplomeEtatFormationInitialeItems,
+  diplomeEtatPointCount,
+  tndFormationCount,
+  tndFormationSubcategories,
+} from './data/formations';
+import proPortrait from './images/pro-image.jpeg';
 
 function SectionDivider() {
   return (
@@ -220,10 +170,9 @@ export default function App() {
             <div className="relative">
               <div className="aspect-[4/5] rounded-3xl overflow-hidden bg-terracotta/10 shadow-soft-lg ring-1 ring-terracotta/10">
                 <img
-                  src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=800"
+                  src={proPortrait}
                   alt="Portrait de la psychomotricienne"
                   className="object-cover w-full h-full"
-                  referrerPolicy="no-referrer"
                 />
               </div>
               <div className="absolute -bottom-6 -right-4 md:-right-6 bg-terracotta-light/95 p-6 rounded-3xl border border-cream/25 shadow-soft-lg hidden md:block max-w-[240px]">
@@ -295,166 +244,68 @@ export default function App() {
           </div>
 
           <div className="space-y-12 md:space-y-14">
-            <div className="max-w-4xl mx-auto">
-              <div className="bg-terracotta-light rounded-3xl border border-cream/20 shadow-soft overflow-hidden">
-                <div className="p-6 md:p-7">
-                  <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
-                    <div className="text-center sm:text-left">
-                      <h3 className="text-xl md:text-2xl font-serif text-cream leading-snug">
-                        Diplôme d’État — formation initiale
-                      </h3>
-                      <p className="mt-2 text-sm text-cream/85">
-                        {diplomeEtatPointCount} point{diplomeEtatPointCount > 1 ? 's' : ''} sur ce parcours
-                      </p>
-                    </div>
-                    <button
-                      type="button"
-                      id="diplome-etat-toggle"
-                      aria-expanded={isDiplomeEtatOpen}
-                      aria-controls="diplome-etat-detail"
-                      onClick={() => setIsDiplomeEtatOpen((o) => !o)}
-                      className={parcoursToggleButtonClass}
-                    >
-                      {isDiplomeEtatOpen ? 'Masquer le détail' : 'Voir le détail'}
-                      <ChevronDown
-                        className={`h-4 w-4 transition-transform ${isDiplomeEtatOpen ? 'rotate-180' : ''}`}
-                        aria-hidden
-                      />
-                    </button>
-                  </div>
+            <ParcoursExpandableCard
+              title="Diplôme d’État — formation initiale"
+              subtitle={`${diplomeEtatPointCount} point${diplomeEtatPointCount > 1 ? 's' : ''} sur ce parcours`}
+              open={isDiplomeEtatOpen}
+              onToggle={() => setIsDiplomeEtatOpen((o) => !o)}
+              toggleId="diplome-etat-toggle"
+              detailId="diplome-etat-detail"
+              toggleButtonClassName={parcoursToggleButtonClass}
+            >
+              <div className="rounded-2xl border border-cream/20 bg-cream/10 p-5 md:p-6">
+                <div className="space-y-3 text-sm text-cream/90 leading-relaxed">
+                  {diplomeEtatFormationInitialeItems.map((item, j) => (
+                    <p key={j}>{item}</p>
+                  ))}
                 </div>
-
-                {isDiplomeEtatOpen ? (
-                  <div
-                    id="diplome-etat-detail"
-                    role="region"
-                    aria-labelledby="diplome-etat-toggle"
-                    className="border-t border-cream/20 bg-terracotta-light px-4 pb-6 pt-5 md:px-6 md:pb-7"
-                  >
-                    <div className="rounded-2xl border border-cream/20 bg-cream/10 p-5 md:p-6">
-                      <div className="space-y-3 text-sm text-cream/90 leading-relaxed">
-                        {diplomeEtatFormationInitialeItems.map((item, j) => (
-                          <p key={j}>{item}</p>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                ) : null}
               </div>
-            </div>
+            </ParcoursExpandableCard>
 
-            <div className="max-w-4xl mx-auto">
-              <div className="bg-terracotta-light rounded-3xl border border-cream/20 shadow-soft overflow-hidden">
-                <div className="p-6 md:p-7">
-                  <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
-                    <div className="text-center sm:text-left">
-                      <h3 className="text-xl md:text-2xl font-serif text-cream leading-snug">
-                        Troubles du neurodéveloppement (TND)
-                      </h3>
-                      <p className="mt-2 text-sm text-cream/85">
-                        {tndFormationCount} formation{tndFormationCount > 1 ? 's' : ''} suivie
-                        {tndFormationCount > 1 ? 's' : ''} dans ce domaine
-                      </p>
-                    </div>
-                    <button
-                      type="button"
-                      id="tnd-formations-toggle"
-                      aria-expanded={isTndFormationsOpen}
-                      aria-controls="tnd-formations-detail"
-                      onClick={() => setIsTndFormationsOpen((o) => !o)}
-                      className={parcoursToggleButtonClass}
-                    >
-                      {isTndFormationsOpen ? 'Masquer le détail' : 'Voir le détail'}
-                      <ChevronDown
-                        className={`h-4 w-4 transition-transform ${isTndFormationsOpen ? 'rotate-180' : ''}`}
-                        aria-hidden
-                      />
-                    </button>
-                  </div>
-                </div>
-
-                {isTndFormationsOpen ? (
-                  <div
-                    id="tnd-formations-detail"
-                    role="region"
-                    aria-labelledby="tnd-formations-toggle"
-                    className="border-t border-cream/20 bg-terracotta-light px-4 pb-6 pt-5 md:px-6 md:pb-7"
-                  >
-                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5">
-                      {tndFormationSubcategories.map((cat, i) => (
-                        <div
-                          key={i}
-                          className="rounded-2xl border border-cream/20 bg-cream/10 p-5 md:p-6"
-                        >
-                          <h4 className="text-base font-serif text-cream mb-3 leading-snug md:text-lg">
-                            {cat.title}
-                          </h4>
-                          <ul className="list-disc list-outside space-y-2 pl-4 text-sm text-cream/90 leading-relaxed marker:text-cream">
-                            {cat.items.map((item, j) => (
-                              <li key={j} className="pl-1">
-                                {item}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
+            <ParcoursExpandableCard
+              title="Troubles du neurodéveloppement (TND)"
+              subtitle={`${tndFormationCount} formation${tndFormationCount > 1 ? 's' : ''} suivie${tndFormationCount > 1 ? 's' : ''} dans ce domaine`}
+              open={isTndFormationsOpen}
+              onToggle={() => setIsTndFormationsOpen((o) => !o)}
+              toggleId="tnd-formations-toggle"
+              detailId="tnd-formations-detail"
+              toggleButtonClassName={parcoursToggleButtonClass}
+            >
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5">
+                {tndFormationSubcategories.map((cat, i) => (
+                  <div key={i} className="rounded-2xl border border-cream/20 bg-cream/10 p-5 md:p-6">
+                    <h4 className="text-base font-serif text-cream mb-3 leading-snug md:text-lg">{cat.title}</h4>
+                    <ul className="list-disc list-outside space-y-2 pl-4 text-sm text-cream/90 leading-relaxed marker:text-cream">
+                      {cat.items.map((item, j) => (
+                        <li key={j} className="pl-1">
+                          {item}
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   </div>
-                ) : null}
+                ))}
               </div>
-            </div>
+            </ParcoursExpandableCard>
 
-            <div className="max-w-4xl mx-auto">
-              <div className="bg-terracotta-light rounded-3xl border border-cream/20 shadow-soft overflow-hidden">
-                <div className="p-6 md:p-7">
-                  <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
-                    <div className="text-center sm:text-left">
-                      <h3 className="text-xl md:text-2xl font-serif text-cream leading-snug">
-                        Autres troubles psychomoteurs
-                      </h3>
-                      <p className="mt-2 text-sm text-cream/85">
-                        {autresTroublesFormationCount} formation
-                        {autresTroublesFormationCount > 1 ? 's' : ''} suivie
-                        {autresTroublesFormationCount > 1 ? 's' : ''} dans ce domaine
-                      </p>
-                    </div>
-                    <button
-                      type="button"
-                      id="autres-troubles-toggle"
-                      aria-expanded={isAutresTroublesOpen}
-                      aria-controls="autres-troubles-detail"
-                      onClick={() => setIsAutresTroublesOpen((o) => !o)}
-                      className={parcoursToggleButtonClass}
-                    >
-                      {isAutresTroublesOpen ? 'Masquer le détail' : 'Voir le détail'}
-                      <ChevronDown
-                        className={`h-4 w-4 transition-transform ${isAutresTroublesOpen ? 'rotate-180' : ''}`}
-                        aria-hidden
-                      />
-                    </button>
-                  </div>
-                </div>
-
-                {isAutresTroublesOpen ? (
-                  <div
-                    id="autres-troubles-detail"
-                    role="region"
-                    aria-labelledby="autres-troubles-toggle"
-                    className="border-t border-cream/20 bg-terracotta-light px-4 pb-6 pt-5 md:px-6 md:pb-7"
-                  >
-                    <div className="rounded-2xl border border-cream/20 bg-cream/10 p-5 md:p-6">
-                      <ul className="list-disc list-outside space-y-2.5 pl-4 text-sm text-cream/90 leading-relaxed marker:text-cream">
-                        {autresTroublesPsychomoteursItems.map((item, j) => (
-                          <li key={j} className="pl-1">
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                ) : null}
+            <ParcoursExpandableCard
+              title="Autres troubles psychomoteurs"
+              subtitle={`${autresTroublesFormationCount} formation${autresTroublesFormationCount > 1 ? 's' : ''} suivie${autresTroublesFormationCount > 1 ? 's' : ''} dans ce domaine`}
+              open={isAutresTroublesOpen}
+              onToggle={() => setIsAutresTroublesOpen((o) => !o)}
+              toggleId="autres-troubles-toggle"
+              detailId="autres-troubles-detail"
+              toggleButtonClassName={parcoursToggleButtonClass}
+            >
+              <div className="rounded-2xl border border-cream/20 bg-cream/10 p-5 md:p-6">
+                <ul className="list-disc list-outside space-y-2.5 pl-4 text-sm text-cream/90 leading-relaxed marker:text-cream">
+                  {autresTroublesPsychomoteursItems.map((item, j) => (
+                    <li key={j} className="pl-1">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </div>
+            </ParcoursExpandableCard>
           </div>
         </div>
       </section>

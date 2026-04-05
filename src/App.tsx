@@ -185,7 +185,13 @@ export default function App() {
                 </p>
                 <p>
                   Je suis spécialisée dans la prise en charge des enfants et adolescents porteurs de troubles du
-                  neurodéveloppement et des enfants présentant des troubles de l&apos;écriture.
+                  neurodéveloppement (TDAH, autisme, troubles dys, trouble des coordinations…) et des enfants présentant des troubles de l&apos;écriture.
+                </p>
+                <p>
+                  Je rencontre des enfants et adolescents présentant des troubles psychomoteurs divers (difficultés motrices, sensorielles, cognitives, attentionnelles, spatiales, relationnelles, émotionnelles, etc.) 
+                </p>
+                <p>
+                Je reçois également des adultes et personnes âgées pouvant présenter des difficultés dans leur quotidien.
                 </p>
                 <p>
                   Je m&apos;actualise continuellement sur les recommandations de bonnes pratiques de la HAS et me forme chaque
@@ -195,7 +201,7 @@ export default function App() {
               <ul className="mt-8 space-y-3">
                 {[
 
-                  'Enfants et adolescents',
+                  'De l\'enfant à la personne âgée',
                   'Séances individuelles ou groupales',
                   'Guidance parentale',
                 ].map((item, i) => (
@@ -212,7 +218,7 @@ export default function App() {
             <h3 className="text-2xl md:text-3xl font-serif text-terracotta mb-6">Qu&apos;est-ce que la psychomotricité ?</h3>
             <div className="max-w-3xl space-y-4 text-terracotta/85 leading-relaxed">
               <p>
-                Le psychomotricien travaille sur prescription médicale. Il est le spécialiste de la psychomotricité, de son
+                Le psychomotricien, proffessionnel paramédical, travaille sur prescription médicale. Il est le spécialiste de la psychomotricité, de son
                 développement chez l&apos;enfant et de la régulation de son fonctionnement chez l&apos;adulte et la personne âgée.
               </p>
               <p>
@@ -329,7 +335,7 @@ export default function App() {
               </div>
               <ul className="space-y-2 text-cream/90 text-sm leading-relaxed">
                 <li>• Retard de développement moteur</li>
-                <li>• Maladresse, difficultés motrices</li>
+                <li>• Maladresse, difficultés motrices fines et/ou globales</li>
                 <li>• Agitation</li>
                 <li>• Difficultés de concentration</li>
                 <li>• Gestion des émotions</li>
@@ -354,6 +360,7 @@ export default function App() {
                 <li>• Difficultés dans les apprentissages</li>
                 <li>• Troubles du neurodéveloppement (TND) : TDAH, TDI, TDC, autisme, Troubles DYS, etc.</li>
                 <li>• Difficultés d&apos;organisation</li>
+                <li>• Handicap physique, mental neurologique ou génétique (trisomie, syndrome génétique, etc.)</li>
                 <li>• Et autres motifs de consultation </li>
               </ul>
             </div>

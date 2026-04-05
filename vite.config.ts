@@ -4,7 +4,7 @@ import path from 'path';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: '/cabinet-psychomot-web-oriane/',
+  base: '/psychomotricienne-montpellier/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {

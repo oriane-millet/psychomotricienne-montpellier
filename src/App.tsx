@@ -218,7 +218,7 @@ export default function App() {
             <h3 className="text-2xl md:text-3xl font-serif text-terracotta mb-6">Qu&apos;est-ce que la psychomotricité ?</h3>
             <div className="max-w-3xl space-y-4 text-terracotta/85 leading-relaxed">
               <p>
-                Le psychomotricien, proffessionnel paramédical, travaille sur prescription médicale. Il est le spécialiste de la psychomotricité, de son
+                Le psychomotricien, professionnel paramédical, travaille sur prescription médicale. Il est le spécialiste de la psychomotricité, de son
                 développement chez l&apos;enfant et de la régulation de son fonctionnement chez l&apos;adulte et la personne âgée.
               </p>
               <p>

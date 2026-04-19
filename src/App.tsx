@@ -339,7 +339,7 @@ export default function App() {
                 <li>• Agitation</li>
                 <li>• Difficultés de concentration</li>
                 <li>• Gestion des émotions</li>
-                <li>• Difficultés relationnelles, dans les habilités sociales</li>
+                <li>• Difficultés relationnelles, dans les habiletés sociales</li>
                 <li>• Difficultés sensorielles</li>
                 
               </ul>

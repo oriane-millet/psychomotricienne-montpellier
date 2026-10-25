@@ -136,9 +136,6 @@ export default function App() {
       <section className="relative pt-16 pb-28 md:pb-32 overflow-hidden">
         <div className="absolute inset-0 -z-10 bg-gradient-to-br from-cream via-terracotta-surface to-terracotta-accent/10" />
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="font-script text-2xl md:text-3xl text-terracotta-accent/95 mb-3 md:mb-4">
-            Bienvenue
-          </p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-terracotta mb-5 md:mb-6 leading-tight">
             Oriane MILLET
           </h1>
@@ -176,7 +173,6 @@ export default function App() {
               </div>
             </div>
             <div>
-              <p className="font-script text-2xl text-terracotta-accent/90 mb-2">À propos</p>
               <h2 className="text-3xl md:text-4xl font-serif text-terracotta mb-6">Qui suis-je ?</h2>
               <div className="space-y-4 text-terracotta/85 leading-relaxed">
                 <p>
@@ -190,18 +186,16 @@ export default function App() {
                 <p>
                   Je rencontre des enfants et adolescents présentant des troubles psychomoteurs divers (difficultés motrices, sensorielles, cognitives, attentionnelles, spatiales, relationnelles, émotionnelles, etc.) 
                 </p>
+              
                 <p>
-                Je reçois également des adultes et personnes âgées pouvant présenter des difficultés dans leur quotidien.
-                </p>
-                <p>
-                  Je m&apos;actualise continuellement sur les recommandations de bonnes pratiques de la HAS et me forme chaque
+                  Je m&apos;actualise continuellement sur les recommandations de bonnes pratiques de la Haute Autorité de Santé (HAS) et me forme chaque
                   année afin de proposer aux patients et à leurs familles les accompagnements les plus adaptés possibles.
                 </p>
               </div>
               <ul className="mt-8 space-y-3">
                 {[
 
-                  'De l\'enfant à la personne âgée',
+                  'De 3 à 18 ans',
                   'Séances individuelles ou groupales',
                   'Guidance parentale',
                 ].map((item, i) => (
@@ -224,8 +218,7 @@ export default function App() {
               <p>
                 Les séances peuvent être réalisées de manière individuelle ou groupale, pour développer et rééduquer les
                 fonctions motrices, cognitives et sensorielles. Le psychomotricien a pour but de permettre une meilleure
-                adaptation de la personne dans son quotidien et ses interactions avec l&apos;environnement dans lequel elle
-                évolue.
+                adaptation de la personne dans son quotidien et son environnement.
               </p>
             </div>
           </div>
@@ -426,10 +419,9 @@ export default function App() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-16">
             <div>
-              <p className="font-script text-2xl text-terracotta-accent/90 mb-2">Contact</p>
               <h2 className="text-3xl md:text-4xl font-serif text-cream mb-6 md:mb-8">Prendre rendez-vous</h2>
               <p className="text-cream/85 mb-10 leading-relaxed">
-                Pour toute question ou pour prendre rendez-vous, n&apos;hésitez pas à me contacter. Je vous répondrai dans les plus brefs délais.
+                Vous pouvez me contacter pour prendre rendez-vous ou vous inscrire sur ma liste d&apos;attente, je vous contacterais dans les plus brefs délais.
               </p>
 
               <div className="space-y-6">
@@ -486,6 +478,16 @@ export default function App() {
                 >
                   Appeler le 06 70 51 69 98
                 </a>
+
+                <a
+                  href="https://www.doctolib.fr/psychomotricien/montpellier/oriane-millet"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full items-center justify-center rounded-3xl border-2 border-cream/40 px-6 py-3.5 text-base font-medium text-cream transition-all hover:bg-cream/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cream/50 sm:w-auto"
+                >
+                  Prendre rendez-vous sur Doctolib
+                </a>
+
                 <a
                   href="https://www.rdvlive.fr/r/form/ZHEDPP"
                   target="_blank"
@@ -497,9 +499,10 @@ export default function App() {
               </div>
             </div>
 
+            
             <div className="h-[380px] md:h-[400px] bg-terracotta rounded-3xl overflow-hidden relative border border-cream/15 shadow-soft-lg flex items-center justify-center">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d92456.84073305609!2d3.80705915!3d43.61007345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b6af0725dd9db1%3A0xad8756742894e802!2sMontpellier!5e0!3m2!1sfr!2sfr!4v1710000000000!5m2!1sfr!2sfr"
+                src="https://www.google.com/maps?q=Oriane%20MILLET%20Psychomotricienne%20Montpellier&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -507,9 +510,10 @@ export default function App() {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 className="absolute inset-0"
-                title="Carte du cabinet à Montpellier"
+                title="Carte du cabinet Oriane MILLET à Montpellier"
               />
             </div>
+
           </div>
         </div>
       </section>

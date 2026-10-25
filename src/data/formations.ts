@@ -25,7 +25,7 @@ export const tndFormationSubcategories = [
   {
     title: 'Trouble du spectre de l’autisme (TSA)',
     items: [
-      'Le développement des habilités sociales des personnes autistes',
+      'Le développement des habiletés sociales des personnes autistes',
       'Les principes de la conception TEACCH',
       'Cerner le profil sensoriel et perceptif dans l’autisme',
       'Les 9 aptitudes essentielles à la communication',
